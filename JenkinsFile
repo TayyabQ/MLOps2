@@ -1,0 +1,38 @@
+pipeline {
+    agent any
+    environment {
+        env_Variable  = 'value'
+    }
+    
+
+     stages {
+        stage('Install') {
+            steps {
+                bat 'pip install -r requirements.txt'
+            }
+        }
+     }
+
+
+
+     stages {
+        stage('Test') {
+            steps {
+                bat 'pytest test.py'
+            }
+        }
+     }
+
+
+
+     stages {
+        stage('Deploy') {
+            steps {
+                bat 'echo Successfully Deployed'
+            }
+        }
+     }
+
+
+
+}
